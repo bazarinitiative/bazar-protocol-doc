@@ -104,6 +104,15 @@ A p2p social networking protocol based upon public key algorithm.
     |commandTime|int64|Y||
     |postID|char(30)|Y||
 
+- Bookmark
+
+    | Field | FieldType | Required | Comment |
+    |-|-|-|-|
+    |userID|char(30)|Y||
+    |commandID|char(30)|Y||
+    |commandTime|int64|Y||
+    |postID|char(30)|Y||
+
 - Following
 
     | Field | FieldType | Required | Comment |
