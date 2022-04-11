@@ -122,6 +122,7 @@ A p2p social networking protocol based upon public key algorithm.
     |commandID|char(30)|Y||
     |commandTime|int64|Y||
     |channelID|char(30)|Y|uniqueID of this Channel|
+    |channelName|varchar(100)|Y|displayName of this Channel|
     |description|varchar(300)|Y||
 
 - ChannelMember
