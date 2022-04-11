@@ -130,7 +130,7 @@ A p2p social networking protocol based upon public key algorithm.
     |userID|char(30)|Y||
     |commandID|char(30)|Y||
     |commandTime|int64|Y||
-    |channelID|char(30)|Y|uniqueID of this Channel|
+    |channelID|char(30)|Y|uniqueID of this Channel. every user can have 50 channels at most|
     |channelName|varchar(100)|Y|displayName of this Channel|
     |description|varchar(300)|Y||
 
@@ -141,7 +141,7 @@ A p2p social networking protocol based upon public key algorithm.
     |userID|char(30)|Y||
     |commandID|char(30)|Y||
     |commandTime|int64|Y||
-    |cmID|char(30)|Y|uniqueID of this channel-member relationship|
+    |cmID|char(30)|Y|uniqueID of this channel-member relationship. every channel can have 200 members at most|
     |channelID|char(30)|Y||
     |memberID|char(30)|Y|add this user to channel. |
 
