@@ -131,7 +131,8 @@ A p2p social networking protocol based upon public key algorithm.
     |userID|char(30)|Y||
     |commandID|char(30)|Y||
     |commandTime|int64|Y||
-    |channelID|char(30)|Y|uniqueID of this Channel|
+    |cmID|char(30)|Y|uniqueID of this channel-member relationship|
+    |channelID|char(30)|Y||
     |memberID|char(30)|Y|add this user to channel. |
 
 - BlockUser
