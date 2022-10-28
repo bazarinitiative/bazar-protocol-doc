@@ -5,6 +5,7 @@ A p2p social networking protocol based upon public key algorithm.
 ## Version
 
 0.1
+- Bazar protocol use command time to control the protocol version upgrade. Any commmand with specific version that exceed specific time will be treated as invalid. Any command cannot interactive to a Post with later time. Any UGC with huge gap of command time and receive time should be marked as low trustworthy and low priority to display.
 
 ## User Account
 
