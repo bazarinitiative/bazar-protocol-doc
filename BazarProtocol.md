@@ -10,6 +10,13 @@ A p2p social networking protocol based upon public key algorithm.
 - Affective v0.2 time start from: 2022/10/29 UTC
 - Atleaset v0.2 time start from: 2022/11/30 UTC
 
+### Changes of this version
+
+- Introduce version upgrade mechanism: depend on `commandTime` and `version`
+- Add `version` to `Command`
+- Introduce `Command Content Basic Fields`
+- Add `commandType` to `Command Content Basic Fields`
+
 ## User Account
 
 - An unique ECDSA key pair means an account.
