@@ -4,11 +4,9 @@ A p2p social networking protocol based upon public key algorithm.
 
 ## Version
 
-0.2
+0.1
 
 - Bazar protocol use command time to control the protocol version upgrade. Any commmand with specific version that exceed specific time will be treated as invalid. Any command cannot interactive to a Post with later time. Any UGC with huge gap of command time and receive time should be marked as low trustworthy and low priority to display.
-- Affective v0.2 time start from: 2022/10/29 UTC
-- Atleaset v0.2 time start from: 2022/11/30 UTC
 
 ## User Account
 
@@ -53,21 +51,12 @@ A p2p social networking protocol based upon public key algorithm.
 
     | Field          | FieldType     | Required  | Comment                  |
     | -------------- |:------------- | :-------- | :----------------------- |
-    | commandType    | varchar(20)   | Y | Post, Following, Repost, Like, Delete, etc... |
-    | version        | varchar(20)   | Y | v0.1, etc |
-    | [commandContent](#command-content) | varchar(51*1024) | Y | a json string with detail content of this command |
-    | signature      | varchar(200)  | Y | signature of commandContent |
-
-## Command Content Basic Fields
-
-- Every Command Cotent should contains the following fields
-
-    | Field          | FieldType     | Required  | Comment                  |
-    | -------------- |:------------- | :-------- | :----------------------- |
     | CommandID      | char(30)      | Y | uniqueID of this command |
-    | commandType    | varchar(20)   | Y | Post, Following, Repost, Like, Delete, etc... |
     | commandTime    | int64         | Y | milliseconds since EPOCH (seconds for some old data, should auto adapt) |
     | userID         | char(30)      | Y | who initiative this command |
+    | commandType    | varchar(20)   | Y | Post, Following, Repost, Like, Delete, etc... |
+    | [commandContent](#command-content) | varchar(51*1024) | Y | a json string with detail content of this command |
+    | signature      | varchar(200)  | Y | signature of commandContent |
 
 ## Command Content
 
@@ -75,10 +64,9 @@ A p2p social networking protocol based upon public key algorithm.
 
     | Field | FieldType | Required | Comment |
     |-|-|-|-|
-    |commandID|char(30)|Y||
-    |commandType| varchar(20)   | Y | |
-    |commandTime|int64|Y||
     |userID|char(30)|Y||
+    |commandID|char(30)|Y||
+    |commandTime|int64|Y||
     |publicKey|varchar(300)|Y|publicKey that everyone can see|
     |userName|varchar(50)|Y|user can set a name to display|
     |bot|bool|Y|if this user is a bot|
@@ -90,20 +78,18 @@ A p2p social networking protocol based upon public key algorithm.
 
     | Field | FieldType | Required | Comment |
     |-|-|-|-|
-    |commandID|char(30)|Y||
-    |commandType| varchar(20)   | Y | |
-    |commandTime|int64|Y||
     |userID|char(30)|Y||
+    |commandID|char(30)|Y||
+    |commandTime|int64|Y||
     |pic|varchar(50*1024)|Y|base64 encoded user picture. string length 50KB at most.|
 
 - Post
 
     | Field | FieldType | Required | Comment |
     |-|-|-|-|
-    |commandID|char(30)|Y||
-    |commandType| varchar(20)   | Y | |
-    |commandTime|int64|Y||
     |userID|char(30)|Y||
+    |commandID|char(30)|Y||
+    |commandTime|int64|Y||
     |postID|char(30)|Y|unique ID of a post. reply/repost are also post. |
     |threadID|char(30)|Y|postID of the original post|
     |replyTo|char(30)|Y|postID of which we reply to. we can reply to an original post or a reply|
@@ -115,30 +101,27 @@ A p2p social networking protocol based upon public key algorithm.
 
     | Field | FieldType | Required | Comment |
     |-|-|-|-|
-    |commandID|char(30)|Y||
-    |commandType| varchar(20)   | Y | |
-    |commandTime|int64|Y||
     |userID|char(30)|Y||
+    |commandID|char(30)|Y||
+    |commandTime|int64|Y||
     |postID|char(30)|Y||
 
 - Bookmark
 
     | Field | FieldType | Required | Comment |
     |-|-|-|-|
-    |commandID|char(30)|Y||
-    |commandType| varchar(20)   | Y | |
-    |commandTime|int64|Y||
     |userID|char(30)|Y||
+    |commandID|char(30)|Y||
+    |commandTime|int64|Y||
     |postID|char(30)|Y||
 
 - Following
 
     | Field | FieldType | Required | Comment |
     |-|-|-|-|
-    |commandID|char(30)|Y||
-    |commandType| varchar(20)   | Y | |
-    |commandTime|int64|Y||
     |userID|char(30)|Y||
+    |commandID|char(30)|Y||
+    |commandTime|int64|Y||
     |targetType|varchar(20)|Y|"User" or "Channel"|
     |targetID|char(30)|Y|userID or channelID|
 
@@ -146,10 +129,9 @@ A p2p social networking protocol based upon public key algorithm.
 
     | Field | FieldType | Required | Comment |
     |-|-|-|-|
-    |commandID|char(30)|Y||
-    |commandType| varchar(20)   | Y | |
-    |commandTime|int64|Y||
     |userID|char(30)|Y||
+    |commandID|char(30)|Y||
+    |commandTime|int64|Y||
     |channelID|char(30)|Y|uniqueID of this Channel. every user can have 50 channels at most|
     |channelName|varchar(100)|Y|displayName of this Channel|
     |description|varchar(300)|Y||
@@ -158,10 +140,9 @@ A p2p social networking protocol based upon public key algorithm.
 
     | Field | FieldType | Required | Comment |
     |-|-|-|-|
-    |commandID|char(30)|Y||
-    |commandType| varchar(20)   | Y | |
-    |commandTime|int64|Y||
     |userID|char(30)|Y||
+    |commandID|char(30)|Y||
+    |commandTime|int64|Y||
     |cmID|char(30)|Y|uniqueID of this channel-member relationship. every channel can have 200 members at most|
     |channelID|char(30)|Y||
     |memberID|char(30)|Y|add this user to channel. |
@@ -169,29 +150,26 @@ A p2p social networking protocol based upon public key algorithm.
 - BlockUser
     | Field | FieldType | Required | Comment |
     |-|-|-|-|
-    |commandID|char(30)|Y||
-    |commandType| varchar(20)   | Y | |
-    |commandTime|int64|Y||
     |userID|char(30)|Y||
+    |commandID|char(30)|Y||
+    |commandTime|int64|Y||
     |targetID|char(30)|Y|user to block. can not see your post or profile|
 
 - MuteUser
     | Field | FieldType | Required | Comment |
     |-|-|-|-|
-    |commandID|char(30)|Y||
-    |commandType| varchar(20)   | Y | |
-    |commandTime|int64|Y||
     |userID|char(30)|Y||
+    |commandID|char(30)|Y||
+    |commandTime|int64|Y||
     |targetID|char(30)|Y|user to mute. will not display his post/reply|
 
 - Delete
 
     | Field | FieldType | Required | Comment |
     |-|-|-|-|
-    |commandID|char(30)|Y||
-    |commandType| varchar(20)   | Y | |
-    |commandTime|int64|Y||
     |userID|char(30)|Y||
+    |commandID|char(30)|Y||
+    |commandTime|int64|Y||
     |deleteType|varchar(20)|Y|resourceType to delete. Post, Repost, Like, Following, etc|
     |targetID|char(30)|Y|resourceID to delete|
 
