@@ -6,6 +6,7 @@ A p2p social networking protocol based upon public key algorithm.
 
 0.2
 
+- Version is a decimal number, or a decimal number lead by a letter `v`
 - Bazar protocol use command time to control the protocol version upgrade. Any commmand with specific version that exceed specific time will be treated as invalid. Any command cannot interactive to a Post with later time. Any UGC with huge gap of command time and receive time should be marked as low trustworthy and low priority to display.
 - Affective v0.2 time start from: 2022/10/29 UTC
 - Atleaset v0.2 time start from: 2022/11/30 UTC
