@@ -53,6 +53,9 @@ A p2p social networking protocol based upon public key algorithm.
 
     | Field          | FieldType     | Required  | Comment                  |
     | -------------- |:------------- | :-------- | :----------------------- |
+    | CommandID      | char(30)      | Y | uniqueID of this command |
+    | commandTime    | int64         | Y | milliseconds since EPOCH (seconds for some old data, should auto adapt) |
+    | userID         | char(30)      | Y | who initiative this command |
     | commandType    | varchar(20)   | Y | Post, Following, Repost, Like, Delete, etc... |
     | version        | varchar(20)   | Y | v0.1, etc |
     | [commandContent](#command-content) | varchar(51*1024) | Y | a json string with detail content of this command |
